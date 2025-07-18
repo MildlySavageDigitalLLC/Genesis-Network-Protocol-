@@ -3,46 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Genesis Network Protocol</title>
-
-  <!-- Orbitron Font -->
+  <title>Genesis Debt Clock Simulator</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="header">
     🪙
-    <h1>🇺🇲Genesis Network Protocol</h1>
-    <h2>Mint Your Digital Collector's Seals</h2>
+    <h1>🇺🇲 Genesis Debt Clock Simulator</h1>
+    <h2>Mint Seals as the Debt Rises</h2>
   </div>
 
-  <div id="vault-section">
-    <button id="create-vault">Forge Your Vault</button>
-    <p id="vault-status">No Vault Forged Yet</p>
+  <div id="ticker-section">
+    <h3>💸 Simulated Debt Clock</h3>
+    <p id="debt-value">$37,112,901,379,748</p>
+    <p id="seal-count">Seals Minted: 0</p>
+    <button onclick="downloadLedger()">📥 Export Seal Ledger</button>
   </div>
 
-  <div id="tabs">
-    <button class="tab red-tab">Your Vault</button>
-    <button class="tab red-tab">UCL Archive</button>
-    <button class="tab red-tab">About & Documents</button>
+  <div id="seal-log">
+    <h3>🧾 Minted Seals</h3>
+    <ul id="seal-list"></ul>
   </div>
 
-  <!-- Genesis Scripts -->
-  <script src="vault.js"></script>
-  <script src="barcode.js"></script>
-  <script src="stamp.js"></script>
-  <script src="ucl.js"></script>
-  <script src="documents.js"></script>
-  <script src="tabs.js"></script>
-  <script src="dashboard-fix.js"></script>
-  <script src="mint-debug.js"></script>
-  <script src="persistence.js"></script>
-  <script src="controls.js"></script>
-  <script src="genesisBlock.js"></script>
-  <script src="supply.js"></script>
-  <script src="ticker.js"></script>
-  <script src="debtClock.js"></script>
+  <script src="simClock.js"></script>
 </body>
 </html>
