@@ -8,7 +8,7 @@ function renderDebtTicker() {
   container.style.backgroundColor = "#001e3c";
   container.style.color = "white";
   container.style.fontFamily = "Orbitron";
-  container.style.maxWidth = "400px"; // Reduced size
+  container.style.maxWidth = "400px";
   container.style.marginLeft = "auto";
   container.style.marginRight = "auto";
   container.style.textAlign = "center";
@@ -32,15 +32,16 @@ function renderDebtTicker() {
 
   document.body.appendChild(container);
 
-  let currentDebt = 37118834059640; // Starting value
-  const ratePerSecond = 40000; // Realistic growth rate
+  let currentDebt = 37112901379748; // Starting value
+  const ratePerTick = 100000; // Increase per update
+  const interval = 2000; // 2 seconds
 
   function updateTicker() {
-    currentDebt += ratePerSecond;
+    currentDebt += ratePerTick;
     ticker.innerText = `$${currentDebt.toLocaleString()}`;
   }
 
-  setInterval(updateTicker, 1000); // 1 update per second
+  setInterval(updateTicker, interval);
 }
 
 window.addEventListener("DOMContentLoaded", renderDebtTicker);
