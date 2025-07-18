@@ -1,5 +1,3 @@
-// ticker.js
-
 function renderDebtTicker() {
   const container = document.createElement("div");
   container.id = "debt-ticker";
@@ -14,30 +12,33 @@ function renderDebtTicker() {
   container.style.marginLeft = "auto";
   container.style.marginRight = "auto";
   container.style.textAlign = "center";
+  container.style.overflow = "hidden"; // ensures clean fit
 
   const title = document.createElement("h3");
   title.innerText = "💸 Symbolic Debt Clock";
   title.style.color = "#c62828";
+  title.style.marginBottom = "0.5em";
   container.appendChild(title);
 
   const ticker = document.createElement("p");
   ticker.id = "ticker-value";
-  ticker.style.fontSize = "1.5em";
-  ticker.style.marginTop = "1em";
+  ticker.style.fontSize = "1.8em";
+  ticker.style.marginTop = "0.5em";
+  ticker.style.marginBottom = "0";
+  ticker.style.wordBreak = "break-word"; // prevents overflow
+  ticker.style.lineHeight = "1.4em";
   container.appendChild(ticker);
 
   document.body.appendChild(container);
 
-  let currentDebt = 37_118_834_059_640; // Starting symbolic value
-  const ratePerSecond = 100_000; // Approximate increase per second
+  let currentDebt = 37118834059640; // Starting symbolic value
+  const ratePerSecond = 100000; // Calibrated pulse
 
   function updateTicker() {
     currentDebt += ratePerSecond;
     ticker.innerText = `$${currentDebt.toLocaleString()}`;
   }
 
-  updateTicker();
-  setInterval(updateTicker, 0001);
+  setInterval(updateTicker, 1000); // 1000ms = 1 second
 }
-
-window.addEventListener("load", renderDebtTicker);
+window.addEventListener("DOMContentLoaded", renderDebtTicker);
