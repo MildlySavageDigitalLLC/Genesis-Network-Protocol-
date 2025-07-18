@@ -16,6 +16,20 @@ body {
   margin-top: 0;
 }
 
+#tabs {
+  margin-top: 2em;
+}
+
+.tab {
+  margin: 0 1em;
+  padding: 10px 20px;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+}
+
 #controls {
   margin-top: 2em;
 }
@@ -43,7 +57,7 @@ body {
   border-radius: 8px;
 }
 
-#seal-log {
+#ledger {
   margin-top: 2em;
   border: 2px solid #c62828;
   padding: 1em;
@@ -52,12 +66,9 @@ body {
   overflow-y: auto;
 }
 
-button {
-  margin-top: 1em;
-  padding: 10px 20px;
-  background-color: #c62828;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
+#about {
+  margin-top: 2em;
+  border: 2px solid #c62828;
+  padding: 1em;
+  border-radius: 8px;
 }
