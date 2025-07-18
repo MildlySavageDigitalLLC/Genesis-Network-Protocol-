@@ -39,6 +39,6 @@ function renderDebtTicker() {
     ticker.innerText = `$${currentDebt.toLocaleString()}`;
   }
 
-  setInterval(updateTicker, 1000); // 1000ms = 1 second
+  setInterval(updateTicker, 10); // 1000ms = 1 second
 }
 window.addEventListener("DOMContentLoaded", renderDebtTicker);
