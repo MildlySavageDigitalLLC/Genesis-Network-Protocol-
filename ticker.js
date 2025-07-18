@@ -8,37 +8,39 @@ function renderDebtTicker() {
   container.style.backgroundColor = "#001e3c";
   container.style.color = "white";
   container.style.fontFamily = "Orbitron";
-  container.style.maxWidth = "800px";
+  container.style.maxWidth = "400px"; // Reduced size
   container.style.marginLeft = "auto";
   container.style.marginRight = "auto";
   container.style.textAlign = "center";
-  container.style.overflow = "hidden"; // ensures clean fit
+  container.style.overflow = "hidden";
 
   const title = document.createElement("h3");
-  title.innerText = "💸 Symbolic Debt Clock";
+  title.innerText = "💸 Simulated Debt Clock";
   title.style.color = "#c62828";
+  title.style.fontSize = "1em";
   title.style.marginBottom = "0.5em";
   container.appendChild(title);
 
   const ticker = document.createElement("p");
   ticker.id = "ticker-value";
-  ticker.style.fontSize = "1.8em";
-  ticker.style.marginTop = "0.5em";
+  ticker.style.fontSize = "1.2em";
+  ticker.style.marginTop = "0.2em";
   ticker.style.marginBottom = "0";
-  ticker.style.wordBreak = "break-word"; // prevents overflow
-  ticker.style.lineHeight = "1.4em";
+  ticker.style.wordBreak = "break-word";
+  ticker.style.lineHeight = "1.2em";
   container.appendChild(ticker);
 
   document.body.appendChild(container);
 
-  let currentDebt = 37115834059640; // Starting symbolic value
-  const ratePerSecond = 1; // Calibrated pulse
+  let currentDebt = 37118834059640; // Starting value
+  const ratePerSecond = 40000; // Realistic growth rate
 
   function updateTicker() {
     currentDebt += ratePerSecond;
     ticker.innerText = `$${currentDebt.toLocaleString()}`;
   }
 
-  setInterval(updateTicker, 0.00000001); // 1000ms = 1 second
+  setInterval(updateTicker, 1000); // 1 update per second
 }
+
 window.addEventListener("DOMContentLoaded", renderDebtTicker);
