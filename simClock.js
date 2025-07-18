@@ -12,6 +12,7 @@ function updateMintEngine() {
 
   if (minting && delta >= 1_000_000 && sealCount < supplyGoal) {
     sealCount += 1;
+    localStorage.setItem("sealCount", sealCount);
     lastMintDebt = currentDebt;
 
     // ✅ Display minted count
