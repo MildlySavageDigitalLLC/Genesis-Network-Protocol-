@@ -16,6 +16,26 @@ body {
   margin-top: 0;
 }
 
+#controls {
+  margin-top: 2em;
+}
+
+#controls button {
+  margin: 0 1em;
+  padding: 10px 20px;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#mint-status {
+  margin-top: 1em;
+  font-weight: bold;
+  color: #c62828;
+}
+
 #ticker-section {
   margin-top: 2em;
   border: 2px solid #c62828;
