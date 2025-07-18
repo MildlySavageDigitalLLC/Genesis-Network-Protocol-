@@ -2,7 +2,7 @@ function renderDebtTicker() {
   const ticker = document.getElementById("ticker-value");
 
   // Start from latest debt value if no prior session
-  let currentDebt = parseInt(localStorage.getItem("simDebt")) || 37120000000000;
+  let currentDebt = parseInt(localStorage.getItem("simDebt")) || 37121000000000;
   const ratePerTick = 100000; // $100K every 2 seconds
   const interval = 2000; // 2 seconds
 
