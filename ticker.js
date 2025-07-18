@@ -28,8 +28,8 @@ function renderDebtTicker() {
 
   document.body.appendChild(container);
 
-  let currentDebt = 34_000_000_000_000; // Starting symbolic value
-  const ratePerSecond = 40_000; // Approximate increase per second
+  let currentDebt = 37_118_834_059_640; // Starting symbolic value
+  const ratePerSecond = 100_000; // Approximate increase per second
 
   function updateTicker() {
     currentDebt += ratePerSecond;
