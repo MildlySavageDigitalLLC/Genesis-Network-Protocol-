@@ -27,9 +27,6 @@ function renderDebtTicker() {
   container.appendChild(ticker);
 
   const resetBtn = document.createElement("button");
-  resetBtn.innerText = "🔄 Reset Clock";
-  resetBtn.style = "margin-top: 1em; padding: 6px 12px; background-color: #c62828; color: white; border: none; font-family: Orbitron;";
-  resetBtn.onclick = () => {
     localStorage.removeItem("simDebt");
     location.reload();
   };
@@ -37,7 +34,7 @@ function renderDebtTicker() {
 
   document.body.appendChild(container);
 
-  let currentDebt = parseInt(localStorage.getItem("simDebt")) || 37118944379748;
+  let currentDebt = parseInt(localStorage.getItem("simDebt")) || 37118960379748;
   const ratePerTick = 100000;
   const interval = 2000;
 
