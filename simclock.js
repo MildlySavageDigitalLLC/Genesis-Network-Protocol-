@@ -3,7 +3,7 @@ let sealCount = 0;
 let lastMintDebt = currentDebt;
 let minting = false;
 let intervalID = null;
-const totalSupply = 10000;
+const totalSupply = 100000000;
 const sealLedger = [];
 
 function updateDebt() {
