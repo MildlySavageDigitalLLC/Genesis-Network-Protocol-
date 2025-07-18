@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Orbitron Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-
-<!-- JsBarcode Library -->
-<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genesis Network Protocol</title>
+
+  <!-- Orbitron Font -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- JsBarcode Library -->
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+
+  <!-- Genesis Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,7 +24,6 @@
   <div id="vault-section">
     <button id="create-vault">Forge Your Vault</button>
     <p id="vault-status">No Vault Forged Yet</p>
- <script src="barcode.js"></script>
   </div>
 
   <div id="tabs">
@@ -31,6 +32,8 @@
     <button class="tab red-tab">About & Documents</button>
   </div>
 
+  <!-- Genesis Scripts -->
   <script src="vault.js"></script>
+  <script src="barcode.js"></script>
 </body>
 </html>
