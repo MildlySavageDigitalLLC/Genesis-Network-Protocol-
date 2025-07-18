@@ -1,21 +1,29 @@
-let sealCount = 0;
+let sealCount = parseInt(localStorage.getItem("sealCount")) || 0;
 let lastMintDebt = parseInt(localStorage.getItem("simDebt")) || 37118978000000;
 let minting = false;
 let intervalID = null;
 
-const totalSupply = 10000;
+const supplyGoal = 27375000;
 const sealLedger = [];
 
 function updateMintEngine() {
   const currentDebt = parseInt(localStorage.getItem("simDebt")) || lastMintDebt;
   const delta = currentDebt - lastMintDebt;
 
-  if (minting && delta >= 1_000_000 && sealCount < totalSupply) {
+  if (minting && delta >= 1_000_000 && sealCount < supplyGoal) {
     sealCount += 1;
     lastMintDebt = currentDebt;
 
+    // ✅ Display minted count
+    document.getElementById("total-supply").innerText = `Total Supply: ${sealCount.toLocaleString()}`;
+
+    // ✅ Display remaining count
+    document.getElementById("remaining-supply").innerText = `Remaining: ${(supplyGoal - sealCount).toLocaleString()}`;
+
+    // ✅ Persist minted count
+    localStorage.setItem("sealCount", sealCount);
+
     document.getElementById("seal-count").innerText = `Seals Minted: ${sealCount}`;
-    document.getElementById("remaining-supply").innerText = `Remaining: ${totalSupply - sealCount}`;
 
     const seal = {
       id: `DCS-${sealCount}`,
