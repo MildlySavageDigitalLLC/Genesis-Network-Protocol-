@@ -37,7 +37,7 @@ function renderDebtTicker() {
   }
 
   updateTicker();
-  setInterval(updateTicker, 1000);
+  setInterval(updateTicker, 0001);
 }
 
 window.addEventListener("load", renderDebtTicker);
