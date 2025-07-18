@@ -5,7 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genesis Debt Clock Simulator</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #001e3c;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      padding: 2em;
+    }
+    h1 {
+      color: #c62828;
+    }
+    #controls button {
+      margin: 0.5em;
+      padding: 10px 20px;
+      background-color: #c62828;
+      color: white;
+      border: none;
+      font-family: Orbitron, sans-serif;
+      cursor: pointer;
+    }
+    #ticker-section, #seal-log {
+      margin-top: 2em;
+      padding: 1em;
+      border: 2px solid #c62828;
+      border-radius: 8px;
+      background-color: #001e3c;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    ul {
+      max-height: 200px;
+      overflow-y: auto;
+      padding-left: 0;
+      list-style: none;
+    }
+  </style>
 </head>
 <body>
   <div id="header">
@@ -14,6 +50,27 @@
     <h2>Mint Seals as the Debt Rises</h2>
   </div>
 
+  <div id="controls">
+    <button onclick="startMinting()">▶️ Start Minting</button>
+    <button onclick="stopMinting()">⏹ Stop Minting</button>
+    <p id="mint-status">Minting Paused</p>
+  </div>
+
+  <div id="ticker-section">
+    <h3>💸 Simulated Debt Clock</h3>
+    <p id="ticker-value">$37,118,978,000,000</p>
+    <p id="seal-count">Seals Minted: 0</p>
+    <p id="total-supply">Total Supply: 10000</p>
+    <p id="remaining-supply">Remaining: 10000</p>
+    <button onclick="downloadLedger()">📥 Export Seal Ledger</button>
+  </div>
+
+  <div id="seal-log">
+    <h3>🧾 Minted Seals</h3>
+    <ul id="seal-list"></ul>
+  </div>
+
   <script src="simClock.js"></script>
+  <script src="ticker.js"></script>
 </body>
 </html>
