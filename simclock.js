@@ -1,11 +1,15 @@
 let currentDebt = 37112901379748;
 let sealCount = 0;
 let lastMintDebt = currentDebt;
-const ratePerSecond = 40000;
+let minting = false;
+let intervalID = null;
+const totalSupply = 10000;
 const sealLedger = [];
 
 function updateDebt() {
-  currentDebt += ratePerSecond;
+  if (!minting || sealCount >= totalSupply) return;
+
+  currentDebt += 40000;
   document.getElementById("debt-value").innerText = `$${currentDebt.toLocaleString()}`;
 
   const delta = currentDebt - lastMintDebt;
@@ -16,8 +20,11 @@ function updateDebt() {
 }
 
 function mintSeal() {
+  if (sealCount >= totalSupply) return;
+
   sealCount += 1;
   document.getElementById("seal-count").innerText = `Seals Minted: ${sealCount}`;
+  document.getElementById("remaining-supply").innerText = `Remaining: ${totalSupply - sealCount}`;
 
   const seal = {
     id: `DCS-${sealCount}`,
@@ -33,6 +40,23 @@ function mintSeal() {
   document.getElementById("seal-list").appendChild(li);
 }
 
+function startMinting() {
+  if (!intervalID) {
+    intervalID = setInterval(updateDebt, 1000);
+    minting = true;
+    document.getElementById("mint-status").innerText = "Minting Active";
+  }
+}
+
+function stopMinting() {
+  if (intervalID) {
+    clearInterval(intervalID);
+    intervalID = null;
+    minting = false;
+    document.getElementById("mint-status").innerText = "Minting Paused";
+  }
+}
+
 function downloadLedger() {
   let content = `🪙 Genesis Seal Ledger\nVault: SIM-Vault-001\n\n`;
   sealLedger.forEach(seal => {
@@ -45,5 +69,3 @@ function downloadLedger() {
   link.download = "genesis_seal_ledger.txt";
   link.click();
 }
-
-setInterval(updateDebt, 1000);
