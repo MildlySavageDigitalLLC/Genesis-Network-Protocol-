@@ -31,14 +31,14 @@ function renderDebtTicker() {
 
   document.body.appendChild(container);
 
-  let currentDebt = 37118834059640; // Starting symbolic value
-  const ratePerSecond = 100; // Calibrated pulse
+  let currentDebt = 37115834059640; // Starting symbolic value
+  const ratePerSecond = 1; // Calibrated pulse
 
   function updateTicker() {
     currentDebt += ratePerSecond;
     ticker.innerText = `$${currentDebt.toLocaleString()}`;
   }
 
-  setInterval(updateTicker, 0.001); // 1000ms = 1 second
+  setInterval(updateTicker, 0.00000001); // 1000ms = 1 second
 }
 window.addEventListener("DOMContentLoaded", renderDebtTicker);
