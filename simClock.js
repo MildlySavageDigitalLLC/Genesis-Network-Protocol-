@@ -1,5 +1,5 @@
 let sealCount = parseInt(localStorage.getItem("sealCount")) || 0;
-let lastMintDebt = parseInt(localStorage.getItem("simDebt")) || 37118978000000;
+let lastMintDebt = parseInt(localStorage.getItem("simDebt")) || 37121978000000;
 let minting = false;
 let intervalID = null;
 
