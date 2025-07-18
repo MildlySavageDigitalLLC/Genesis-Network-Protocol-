@@ -14,26 +14,40 @@
     <h2>Mint Seals as the Debt Rises</h2>
   </div>
 
-  <div id="controls">
-    <button onclick="startMinting()">▶️ Start Minting</button>
-    <button onclick="stopMinting()">⏹ Stop Minting</button>
-    <p id="mint-status">Minting Paused</p>
+  <div id="tabs">
+    <button class="tab" data-tab="vault">Your Vault</button>
+    <button class="tab" data-tab="ledger">Seal Ledger</button>
+    <button class="tab" data-tab="about">About Protocol</button>
   </div>
 
-  <div id="ticker-section">
-    <h3>💸 Simulated Debt Clock</h3>
-    <p id="debt-value">$37,112,901,379,748</p>
-    <p id="seal-count">Seals Minted: 0</p>
-    <p id="total-supply">Total Supply: 10000</p>
-    <p id="remaining-supply">Remaining: 10000</p>
-    <button onclick="downloadLedger()">📥 Export Seal Ledger</button>
+  <div id="vault" class="tab-content">
+    <div id="controls">
+      <button onclick="startMinting()">▶️ Start Minting</button>
+      <button onclick="stopMinting()">⏹ Stop Minting</button>
+      <p id="mint-status">Minting Paused</p>
+    </div>
+
+    <div id="ticker-section">
+      <h3>💸 Simulated Debt Clock</h3>
+      <p id="debt-value">$37,112,901,379,748</p>
+      <p id="seal-count">Seals Minted: 0</p>
+      <p id="total-supply">Total Supply: 100000000</p>
+      <p id="remaining-supply">Remaining: 100000000</p>
+      <button onclick="downloadLedger()">📥 Export Seal Ledger</button>
+    </div>
   </div>
 
-  <div id="seal-log">
+  <div id="ledger" class="tab-content" style="display:none;">
     <h3>🧾 Minted Seals</h3>
     <ul id="seal-list"></ul>
   </div>
 
+  <div id="about" class="tab-content" style="display:none;">
+    <h3>📜 About Genesis Protocol</h3>
+    <p>This simulation mimics the U.S. Debt Clock in real time. Every $1M increase mints a symbolic Digital Collector’s Seal (DCS). Total supply is capped at 100 million. This is a protest protocol, not a currency.</p>
+  </div>
+
+  <script src="tabs.js"></script>
   <script src="simClock.js"></script>
 </body>
 </html>
