@@ -32,7 +32,7 @@ function renderDebtTicker() {
   document.body.appendChild(container);
 
   let currentDebt = 37118834059640; // Starting symbolic value
-  const ratePerSecond = 100000; // Calibrated pulse
+  const ratePerSecond = 25000; // Calibrated pulse
 
   function updateTicker() {
     currentDebt += ratePerSecond;
