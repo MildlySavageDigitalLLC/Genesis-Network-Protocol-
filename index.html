@@ -14,10 +14,18 @@
     <h2>Mint Seals as the Debt Rises</h2>
   </div>
 
+  <div id="controls">
+    <button onclick="startMinting()">▶️ Start Minting</button>
+    <button onclick="stopMinting()">⏹ Stop Minting</button>
+    <p id="mint-status">Minting Paused</p>
+  </div>
+
   <div id="ticker-section">
     <h3>💸 Simulated Debt Clock</h3>
     <p id="debt-value">$37,112,901,379,748</p>
     <p id="seal-count">Seals Minted: 0</p>
+    <p id="total-supply">Total Supply: 10000</p>
+    <p id="remaining-supply">Remaining: 10000</p>
     <button onclick="downloadLedger()">📥 Export Seal Ledger</button>
   </div>
 
