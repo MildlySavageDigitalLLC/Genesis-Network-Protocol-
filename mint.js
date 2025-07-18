@@ -27,20 +27,19 @@ function mintDCS(currentDebt) {
     vault_id: vault.vault_id,
     minted_on: new Date().toISOString(),
     debt_value: currentDebt,
-    link_id: `LINK-${vault.dcs_count}`,
+    link_id: `LINK-${vault.dcs_count}`
   };
 
-  // Save updated vault
   localStorage.setItem("genesisVault", JSON.stringify(vault));
 
-  // Save Link to UCL Archive
   let archive = JSON.parse(localStorage.getItem("uclArchive")) || [];
   archive.push(link);
   localStorage.setItem("uclArchive", JSON.stringify(archive));
 
-  // Update UI
   const vaultStatus = document.getElementById("vault-status");
-  vaultStatus.innerText = `Vault: ${vault.vault_id} | Seals: ${vault.dcs_count}`;
+  if (vaultStatus) {
+    vaultStatus.innerText = `Vault: ${vault.vault_id} | Seals: ${vault.dcs_count}`;
+  }
 
   console.log("Minted DCS:", link);
 }
@@ -50,6 +49,10 @@ async function checkDebtAndMint() {
   if (!currentDebt) return;
 
   if (lastDebt === null) {
+    const storedArchive = JSON.parse(localStorage.getItem("uclArchive")) || [];
+    if (storedArchive.length === 0) {
+      mintDCS(currentDebt); // Force mint on first load if no history
+    }
     lastDebt = currentDebt;
     return;
   }
@@ -61,5 +64,7 @@ async function checkDebtAndMint() {
   }
 }
 
-// Run every 60 seconds
-setInterval(checkDebtAndMint, 60000);
+window.addEventListener("load", () => {
+  checkDebtAndMint(); // Trigger once on load
+  setInterval(checkDebtAndMint, 60000); // Then every 60s
+});
