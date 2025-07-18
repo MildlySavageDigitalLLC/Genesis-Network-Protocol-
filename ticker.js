@@ -32,7 +32,7 @@ function renderDebtTicker() {
 
   document.body.appendChild(container);
 
-  let currentDebt = 37112901379748; // Starting value
+  let currentDebt = 37118901379748; // Starting value
   const ratePerTick = 100000; // Increase per update
   const interval = 2000; // 2 seconds
 
