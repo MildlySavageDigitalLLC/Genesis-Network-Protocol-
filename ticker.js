@@ -37,7 +37,7 @@ function renderDebtTicker() {
 
   document.body.appendChild(container);
 
-  let currentDebt = parseInt(localStorage.getItem("simDebt")) || 37112901379748;
+  let currentDebt = parseInt(localStorage.getItem("simDebt")) || 37118944379748;
   const ratePerTick = 100000;
   const interval = 2000;
 
